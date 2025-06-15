@@ -10,11 +10,12 @@ npm install binary-cursor
 yarn add binary-cursor
 # or
 pnpm add binary-cursor
-🧩 Usage
-For React Applications
-jsx
-Copy
-Edit
+
+## 🧩 Usage
+
+### For React Applications
+
+```jsx
 import BinaryCursor from 'binary-cursor';
 
 function App() {
@@ -25,17 +26,16 @@ function App() {
     </div>
   );
 }
-For Next.js Applications
+### For Next.js Applications
+
 Since this is a client-side component, you'll need to either:
 
-Use it in client components only, or
+- Use it in client components only, or
+- Dynamically import it with SSR disabled
 
-Dynamically import it with SSR disabled
+**Option 1: In a Client Component**
 
-Option 1: In a Client Component
-jsx
-Copy
-Edit
+```jsx
 'use client';
 import BinaryCursor from 'binary-cursor';
 
@@ -47,10 +47,9 @@ export default function HomePage() {
     </main>
   );
 }
-Option 2: Dynamic Import (Recommended for Next.js)
-jsx
-Copy
-Edit
+**Option 2: Dynamic Import (Recommended for Next.js)**
+
+```jsx
 import dynamic from 'next/dynamic';
 
 const BinaryCursor = dynamic(
@@ -66,23 +65,24 @@ export default function HomePage() {
     </main>
   );
 }
-⚙️ Props Configuration
 
-| Prop                | Type   | Default   | Description                        |
+
+## ⚙️ Props Configuration
+
+| Prop                | Type   | Default   | Description                          |
 | ------------------- | ------ | --------- | ---------------------------------- |
 | `color`             | string | "#12E193" | Particle color (HEX, RGB, or name) |
-| `size`              | number | 13        | Font size in pixels                |
-| `count`             | number | 2         | Particles emitted per frame        |
-| `spread`            | number | 2         | Particle dispersion radius         |
-| `duration`          | number | 1100      | Particle lifespan in ms            |
-| `frequency`         | number | 80        | Emission delay in ms               |
-| `movementThreshold` | number | 5         | Minimum movement to trigger        |
+| `size`              | number | 13        | Font size in pixels                 |
+| `count`             | number | 2         | Particles emitted per frame         |
+| `spread`            | number | 2         | Particle dispersion radius          |
+| `duration`          | number | 1100      | Particle lifespan in ms             |
+| `frequency`         | number | 80        | Emission delay in ms                |
+| `movementThreshold` | number | 5         | Minimum movement to trigger         |
 
 
-🔬 Advanced Example
-jsx
-Copy
-Edit
+## 🔬 Advanced Example
+
+```jsx
 <BinaryCursor
   color="rgba(0, 255, 255, 0.8)"
   size={18}
@@ -92,30 +92,33 @@ Edit
   frequency={40}
   movementThreshold={10}
 />
-⚡ Performance Notes
-Uses requestAnimationFrame for smooth animations
 
-Automatically limits particle count (max 100)
 
-Cleanly removes event listeners on unmount
+## ⚡ Performance Notes
 
-Optimized with will-change and transforms
+- Uses `requestAnimationFrame` for smooth animations
+- Automatically limits particle count (max 100)
+- Cleanly removes event listeners on unmount
+- Optimized with `will-change` and CSS transforms
 
-🧯 Troubleshooting
-Issue: Cursor not appearing in Next.js
-Solution: Ensure you're using the 'use client' directive or dynamic imports
 
-Issue: Performance problems
-Solution: Reduce count or increase frequency values
+## 🧯 Troubleshooting
 
-Issue: Particles not showing
-Solution: Check if your page has overflow: hidden on body or html
+- **Issue: Cursor not appearing in Next.js**  
+  _Solution:_ Ensure you're using the `'use client'` directive or dynamic imports.
 
-🪪 License
-MIT Licensed — Free for personal and commercial use 
+- **Issue: Performance problems**  
+  _Solution:_ Reduce `count` or increase `frequency` values.
 
-👨‍💻 Author
+- **Issue: Particles not showing**  
+  _Solution:_ Check if your page has `overflow: hidden` on `body` or `html`.
+
+## 🪪 License
+
+MIT Licensed — Free for personal and commercial use.
+
+## 👨‍💻 Author
+
 Made with ❤️ by Tarun Sai Srinivas
 
-[Linkedin]("https://linkedin.com/in/tarun-sai-srinivas")
-[Github]("https://github.com/tarunsaisrinivas")
+[LinkedIn](https://linkedin.com/in/tarun-sai-srinivas) | [GitHub](https://github.com/tarunsaisrinivas)
