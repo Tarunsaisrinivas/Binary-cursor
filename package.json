@@ -1,14 +1,21 @@
 {
   "name": "binary-cursor",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+"version": "1.0.0",
+"description": "A React binary cursor component",
+"main": "src/components/BinaryCursor.jsx", 
+"files": [
+  "src/components/BinaryCursor.jsx",
+  "postinstall.js"
+],
+"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview",
+  "postinstall": "node postinstall.js"
+},
+"keywords": ["cursor", "react", "binary", "component"],
+"author": "Tarun Sai Srinivas",
+"license": "MIT",
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

@@ -1,12 +1,121 @@
-# React + Vite
+# Binary Cursor - React & Next.js Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A customizable cursor effect that emits binary particles (0s and 1s) when moving, compatible with both React and Next.js applications.
 
-Currently, two official plugins are available:
+## 🚀 Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install binary-cursor
+# or
+yarn add binary-cursor
+# or
+pnpm add binary-cursor
+🧩 Usage
+For React Applications
+jsx
+Copy
+Edit
+import BinaryCursor from 'binary-cursor';
 
-## Expanding the ESLint configuration
+function App() {
+  return (
+    <div>
+      {/* Your app content */}
+      <BinaryCursor />
+    </div>
+  );
+}
+For Next.js Applications
+Since this is a client-side component, you'll need to either:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Use it in client components only, or
+
+Dynamically import it with SSR disabled
+
+Option 1: In a Client Component
+jsx
+Copy
+Edit
+'use client';
+import BinaryCursor from 'binary-cursor';
+
+export default function HomePage() {
+  return (
+    <main>
+      {/* Your content */}
+      <BinaryCursor />
+    </main>
+  );
+}
+Option 2: Dynamic Import (Recommended for Next.js)
+jsx
+Copy
+Edit
+import dynamic from 'next/dynamic';
+
+const BinaryCursor = dynamic(
+  () => import('binary-cursor'),
+  { ssr: false }
+);
+
+export default function HomePage() {
+  return (
+    <main>
+      {/* Your content */}
+      <BinaryCursor />
+    </main>
+  );
+}
+⚙️ Props Configuration
+
+| Prop                | Type   | Default   | Description                        |
+| ------------------- | ------ | --------- | ---------------------------------- |
+| `color`             | string | "#12E193" | Particle color (HEX, RGB, or name) |
+| `size`              | number | 13        | Font size in pixels                |
+| `count`             | number | 2         | Particles emitted per frame        |
+| `spread`            | number | 2         | Particle dispersion radius         |
+| `duration`          | number | 1100      | Particle lifespan in ms            |
+| `frequency`         | number | 80        | Emission delay in ms               |
+| `movementThreshold` | number | 5         | Minimum movement to trigger        |
+
+
+🔬 Advanced Example
+jsx
+Copy
+Edit
+<BinaryCursor
+  color="rgba(0, 255, 255, 0.8)"
+  size={18}
+  count={4}
+  spread={2.5}
+  duration={2000}
+  frequency={40}
+  movementThreshold={10}
+/>
+⚡ Performance Notes
+Uses requestAnimationFrame for smooth animations
+
+Automatically limits particle count (max 100)
+
+Cleanly removes event listeners on unmount
+
+Optimized with will-change and transforms
+
+🧯 Troubleshooting
+Issue: Cursor not appearing in Next.js
+Solution: Ensure you're using the 'use client' directive or dynamic imports
+
+Issue: Performance problems
+Solution: Reduce count or increase frequency values
+
+Issue: Particles not showing
+Solution: Check if your page has overflow: hidden on body or html
+
+🪪 License
+MIT Licensed — Free for personal and commercial use 
+
+👨‍💻 Author
+Made with ❤️ by Tarun Sai Srinivas
+
+[Linkedin]("https://linkedin.com/in/tarun-sai-srinivas")
+[Github]("https://github.com/tarunsaisrinivas")
